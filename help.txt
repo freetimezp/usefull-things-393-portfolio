@@ -1,0 +1,10 @@
+https://prettier.io/docs/install
+
+https://ui.shadcn.com/docs/installation/vite
+
+
+npm install tailwindcss @tailwindcss/vite
+npm install -D @types/node
+
+npx shadcn@latest init
+npx shadcn@latest add button
