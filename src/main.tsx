@@ -4,12 +4,15 @@ import App from './App.tsx';
 
 import Sidebar from '@/components/Sidebar.tsx';
 import FloatingMenu from '@/components/FloatingMenu.tsx';
+import Profile from '@/components/Profile.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <div className='lg:flex lg:justify-center lg:items-start lg:gap-10 min-h-screen'>
       <Sidebar />
       <FloatingMenu />
+      <Profile />
+
       <App />
     </div>
   </StrictMode>,

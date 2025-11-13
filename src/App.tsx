@@ -1,11 +1,5 @@
-import { Button } from './components/ui/button';
-
 function App() {
-  return (
-    <>
-      <Button>Hello</Button>
-    </>
-  );
+  return <div className='h-[300vh]'></div>;
 }
 
 export default App;
