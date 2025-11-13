@@ -37,7 +37,7 @@ const Sidebar = () => {
           <SheetTitle className='text-lg font-semibold'>Menu</SheetTitle>
 
           <nav className='flex flex-col gap-4'>
-            {navLinks.map((link, i) => {
+            {navLinks.map((link) => {
               const Icon = link.icon;
 
               return (
