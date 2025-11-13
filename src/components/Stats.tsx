@@ -2,8 +2,6 @@ import { motion } from 'motion/react';
 
 import { fadeUp, staggerContainer } from '@/lib/animations';
 
-import { SparkleIcon } from 'lucide-react';
-
 import { statsData } from '@/data/data';
 
 const Stats = () => {
