@@ -1,6 +1,7 @@
 import Hero from '@/components/Hero';
 import Stats from '@/components/Stats';
 import Projects from '@/components/Projects';
+import About from '@/components/About';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Hero />
       <Stats />
       <Projects />
+      <About />
     </main>
   );
 }
