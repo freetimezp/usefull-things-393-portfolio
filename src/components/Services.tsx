@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 
-import { fadeUp, staggerContainer } from '@/lib/animations';
+import { staggerContainer } from '@/lib/animations';
 
 import SectionHeader from '@/components/SectionHeader';
 import ServiceCard from '@/components/ServiceCard';
@@ -10,34 +10,27 @@ import { services } from '@/data/data';
 const Services = () => {
   return (
     <motion.section
+      id='services'
       initial='hidden'
       whileInView='visible'
-      viewport={{ once: true, amount: 0.3 }}
-      variants={staggerContainer(0)}
-      className='mt-30 scroll-mt-10'
-      id='services'
+      viewport={{ once: true, amount: 0.2 }}
+      variants={staggerContainer(0.12)}
+      className='mt-40 scroll-mt-24'
     >
       <SectionHeader
         subtitle='Services'
-        title='Building with Purpose & Precision'
+        title='Building with Purpose & Precision.'
       />
 
-      <motion.div
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ once: true, amount: 0.3 }}
-        variants={staggerContainer(0.5)}
-        className='grid md:grid-cols-2 gap-10 mt-10'
-      >
-        {services.map((service, i) => (
-          <motion.div
-            key={i}
-            variants={fadeUp}
-          >
-            <ServiceCard service={service} />
-          </motion.div>
+      <div className='mt-16 space-y-6'>
+        {services.map((service, index) => (
+          <ServiceCard
+            key={index}
+            service={service}
+            index={index}
+          />
         ))}
-      </motion.div>
+      </div>
     </motion.section>
   );
 };
