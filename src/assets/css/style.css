@@ -184,3 +184,21 @@
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
+
+.floating-menu {
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: dockFloat 6s ease-in-out infinite;
+}
+
+@keyframes dockFloat {
+  0%,
+  100% {
+    transform: translateY(-50%);
+  }
+
+  50% {
+    transform: translateY(calc(-50% - 6px));
+  }
+}

@@ -8,8 +8,8 @@ const FloatingMenu = () => {
 
   return (
     <div
-      className='fixed right-10 top-1/2 -translate-y-1/2 bg-black border border-neutral-500 pt-4
-        rounded-full z-10 hidden lg:block'
+      className='floating-menu fixed z-0 rounded-full border border-white/10 bg-white/5
+      backdrop-blur-xl p-3 shadow-2xl'
     >
       {navLinks.map((link) => {
         const Icon = link.icon;
@@ -20,11 +20,21 @@ const FloatingMenu = () => {
             key={link.label}
             onClick={() => setActive(link.link)}
             className={cn(
-              'text-neutral-400 flex items-center gap-2 hover:text-primary transition-colors duration-200 mb-6 px-4',
-              active === link.link && 'text-primary',
+              'relative group flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300',
+              active === link.link
+                ? 'bg-primary/10 text-white scale-110'
+                : 'text-neutral-500 hover:bg-white/5',
             )}
           >
             <Icon className='size-5' />
+
+            <span
+              className='absolute right-full mr-4 rounded-full bg-neutral-900 text-white px-3 py-1
+                  text-sm opacity-0 translate-x-3 group-hover:opacity-100 group-hover:translate-x-0
+                  transition whitespace-nowrap'
+            >
+              {link.label}
+            </span>
           </a>
         );
       })}
