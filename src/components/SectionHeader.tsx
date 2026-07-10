@@ -14,6 +14,13 @@ const SectionHeader = ({
     <>
       <motion.p
         variants={fadeUp}
+        animate={{
+          scale: [1, 1.05, 1],
+        }}
+        transition={{
+          repeat: Infinity,
+          duration: 2,
+        }}
         className='flex items-center justify-center py-1 gap-2 border border-neutral-600 rounded-sm
             w-32'
       >

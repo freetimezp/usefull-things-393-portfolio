@@ -1,35 +1,172 @@
 import { motion } from 'motion/react';
+import { ArrowUpRight } from 'lucide-react';
+import { useState } from 'react';
 
 import { fadeUp } from '@/lib/animations';
 import type { ProjectType } from '@/types';
 
 const ProjectCard = ({ imgSrc, projectLink, tags, title }: ProjectType) => {
+  const [mouse, setMouse] = useState({
+    x: 50,
+    y: 50,
+  });
+
   return (
-    <motion.div
+    <motion.article
       variants={fadeUp}
-      className='relative'
+      whileHover={{ y: -10 }}
+      transition={{ duration: 0.4 }}
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+
+        setMouse({
+          x: ((e.clientX - rect.left) / rect.width) * 100,
+          y: ((e.clientY - rect.top) / rect.height) * 100,
+        });
+      }}
+      className='group relative overflow-hidden rounded-3xl border border-white/10 bg-white/3 backdrop-blur-xl'
     >
-      <figure className='overflow-hidden rounded-md'>
-        <img
+      {/* Cursor Glow */}
+
+      <div
+        className='absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300'
+        style={{
+          background: `radial-gradient(circle at ${mouse.x}% ${mouse.y}%,
+          rgba(255,255,255,.12),
+          transparent 55%)`,
+        }}
+      />
+
+      {/* Image */}
+
+      <figure className='overflow-hidden rounded-[22px] m-3'>
+        <motion.img
           src={imgSrc}
           alt={title}
-          className='rounded-md transition duration-500 hover:scale-115 w-full grayscale-50'
+          whileHover={{
+            scale: 1.08,
+            rotate: 1,
+          }}
+          transition={{
+            duration: 0.6,
+          }}
+          className='w-full h-[340px] object-cover grayscale-80 transition '
         />
       </figure>
 
-      <div className='absolute bottom-0 p-2 flex gap-2'>
-        {tags.map((tag, i) => (
-          <a
+      {/* Overlay */}
+
+      <div
+        className='absolute inset-0 bg-linear-to-t from-black/90 via-black/70 to-transparent opacity-0
+        group-hover:opacity-100 transition duration-500'
+      />
+
+      {/* Content */}
+
+      <div className='absolute inset-0 flex flex-col justify-end p-8'>
+        <motion.div
+          initial={{
+            y: 40,
+            opacity: 0,
+          }}
+          whileHover={{
+            y: 0,
+            opacity: 1,
+          }}
+          transition={{
+            duration: 0.35,
+          }}
+        >
+          <p className='text-sm uppercase tracking-[0.3em] text-primary'>
+            Featured Project
+          </p>
+
+          <h3 className='mt-2 text-3xl font-bold'>{title}</h3>
+
+          <div className='flex flex-wrap gap-2 mt-5'>
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className='
+                rounded-full
+                border
+                border-white/10
+                bg-white/10
+                backdrop-blur-xl
+                px-3
+                py-1
+                text-xs
+                '
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <motion.a
             href={projectLink}
-            key={i}
-            className='bg-background hover:bg-primary hover:text-black py-1 px-2 rounded-sm text-sm
-              cursor-pointer'
+            target='_blank'
+            rel='noreferrer'
+            whileHover={{
+              x: 6,
+            }}
+            className='
+            mt-8
+            inline-flex
+            w-fit
+            items-center
+            gap-2
+            rounded-full
+            bg-primary
+            px-5
+            py-3
+            font-medium
+            text-black
+            '
           >
-            {tag}
-          </a>
-        ))}
+            View Project
+            <ArrowUpRight size={18} />
+          </motion.a>
+        </motion.div>
       </div>
-    </motion.div>
+
+      {/* Number */}
+
+      <span
+        className='
+        absolute
+        right-6
+        top-2
+        text-[120px]
+        font-black
+        leading-none
+        text-white/[0.03]
+        pointer-events-none
+      '
+      >
+        01
+      </span>
+
+      {/* Bottom glow */}
+
+      <div
+        className='
+        absolute
+        -bottom-24
+        left-1/2
+        h-52
+        w-52
+        -translate-x-1/2
+        rounded-full
+        bg-primary/20
+        blur-3xl
+        opacity-0
+        group-hover:opacity-100
+        transition
+        duration-500
+      '
+      />
+    </motion.article>
   );
 };
 
