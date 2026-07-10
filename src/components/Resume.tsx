@@ -15,7 +15,13 @@ const Resume = () => {
       whileInView='visible'
       viewport={{ once: true, amount: 0.3 }}
       variants={staggerContainer(0)}
-      className='mt-30 scroll-mt-10'
+      className='
+      mt-20
+      scroll-mt-24
+
+      sm:mt-24
+      lg:mt-32
+    '
       id='resume'
     >
       <SectionHeader
@@ -25,7 +31,16 @@ const Resume = () => {
 
       <motion.p
         variants={fadeUp}
-        className='mt-4 text-neutral-300 text-justify'
+        className='
+        mt-6
+        max-w-4xl
+        text-sm
+        leading-7
+        text-neutral-400
+
+        sm:text-base
+        sm:leading-8
+      '
       >
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem
         laudantium magnam, consequuntur asperiores culpa dolore totam sapiente
@@ -35,14 +50,47 @@ const Resume = () => {
         eos.
       </motion.p>
 
-      <div className='grid gap-x-10 my-16 md:grid-cols-2'>
+      <div
+        className='
+          mt-12
+          grid
+          gap-12
+
+          lg:mt-16
+          lg:grid-cols-2
+          lg:gap-10
+        '
+      >
         <motion.div
           variants={fadeUp}
           className='mb-16 md:mb-0'
         >
-          <h2 className='text-3xl font-semibold mb-8'>Education</h2>
+          <h2
+            className='
+              mb-6
+              text-2xl
+              font-semibold
 
-          <div className='space-y-8 border-l border-neutral-700 pl-6'>
+              sm:text-3xl
+              lg:mb-8
+            '
+          >
+            Education
+          </h2>
+
+          <div
+            className='
+              space-y-6
+
+              border-l
+              border-white/10
+
+              pl-5
+
+              sm:space-y-8
+              sm:pl-6
+            '
+          >
             {education.map((item, i) => (
               <ExpCard
                 key={i}
@@ -53,9 +101,32 @@ const Resume = () => {
         </motion.div>
 
         <motion.div variants={fadeUp}>
-          <h2 className='text-3xl font-semibold mb-8'>Work Experience</h2>
+          <h2
+            className='
+              mb-6
+              text-2xl
+              font-semibold
 
-          <div className='space-y-8 border-l border-neutral-700 pl-6'>
+              sm:text-3xl
+              lg:mb-8
+            '
+          >
+            Work Experience
+          </h2>
+
+          <div
+            className='
+              space-y-6
+
+              border-l
+              border-white/10
+
+              pl-5
+
+              sm:space-y-8
+              sm:pl-6
+            '
+          >
             {experience.map((item, i) => (
               <ExpCard
                 key={i}
@@ -66,10 +137,26 @@ const Resume = () => {
         </motion.div>
       </div>
 
-      <div className='my-16'>
+      <div
+        className='
+          mt-16
+
+          sm:mt-20
+
+          lg:mt-24
+        '
+      >
         <motion.h2
           variants={fadeUp}
-          className='text-3xl font-semibold mb-8 capitalize'
+          className='
+          mb-6
+          text-2xl
+          font-semibold
+          capitalize
+
+          sm:text-3xl
+          lg:mb-8
+        '
         >
           My favorite tools
         </motion.h2>
@@ -79,7 +166,19 @@ const Resume = () => {
           whileInView='visible'
           viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer(0.5)}
-          className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5'
+          className='
+          grid
+
+          grid-cols-2
+
+          gap-4
+
+          sm:grid-cols-3
+          sm:gap-5
+
+          lg:grid-cols-4
+          xl:grid-cols-5
+        '
         >
           {tools.map((tool, i) => (
             <ToolsCard

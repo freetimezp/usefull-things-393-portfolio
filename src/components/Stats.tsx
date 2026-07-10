@@ -60,54 +60,146 @@ const Stats = () => {
       whileInView='visible'
       viewport={{ once: true, amount: 0.35 }}
       variants={staggerContainer(0.15)}
-      className='grid grid-cols-1 md:grid-cols-3 gap-8 mt-32'
+      className='
+        mt-20
+        grid
+        gap-5
+
+        sm:mt-24
+        md:grid-cols-2
+        lg:mt-32
+        lg:grid-cols-3
+        lg:gap-8
+      '
     >
       {stats.map((item, index) => {
         const Icon = item.icon;
 
         return (
-          <motion.div
+          <motion.article
             key={index}
             variants={fadeUp}
             whileHover={{
-              y: -10,
+              y: -8,
               scale: 1.03,
             }}
             transition={{
               duration: 0.35,
             }}
-            className='stat-card group relative overflow-hidden rounded-3xl border border-white/10 bg-white/3
-              backdrop-blur-xl p-8'
+            className='
+              stat-card 
+              group
+              relative
+              overflow-hidden
+              rounded-3xl
+              border
+              border-white/10
+              bg-white/[0.03]
+              backdrop-blur-xl
+
+              p-6
+              sm:p-7
+              lg:p-8
+            '
           >
-            {/* Hover gradient */}
+            {/* Hover Glow */}
+
             <div
-              className='absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100
-              bg-linear-to-br from-primary/15 via-primary/5 to-transparent'
+              className='
+                absolute
+                inset-0
+                opacity-0
+                transition-opacity
+                duration-500
+                group-hover:opacity-100
+                bg-gradient-to-br
+                from-primary/15
+                via-primary/5
+                to-transparent
+              '
             />
 
-            {/* Giant Number */}
+            {/* Background Number */}
+
             <span
-              className='absolute right-4 top-0 text-[110px] font-black leading-none text-white/3
-              pointer-events-none select-none'
+              className='
+                pointer-events-none
+                absolute
+                right-3
+                top-1
+
+                select-none
+                font-black
+                leading-none
+
+                text-[70px]
+                text-white/5
+
+                sm:text-[90px]
+                lg:right-4
+                lg:text-[120px]
+              '
             >
               {item.number}
             </span>
 
-            {/* Top line */}
+            {/* Accent Line */}
+
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               transition={{ duration: 0.8 }}
-              className='origin-left mb-8 h-0.5 w-14 bg-primary'
+              className='
+                mb-6
+                h-0.5
+
+                w-10
+                sm:w-12
+                lg:w-14
+
+                origin-left
+                bg-primary
+              '
             />
 
             {/* Icon */}
-            <div className='mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary'>
-              <Icon size={28} />
+
+            <div
+              className='
+                mb-5
+                flex
+                items-center
+                justify-center
+
+                h-12
+                w-12
+
+                rounded-2xl
+
+                bg-primary/10
+                text-primary
+
+                sm:h-14
+                sm:w-14
+                lg:h-16
+                lg:w-16
+              '
+            >
+              <Icon className='h-6 w-6 lg:h-7 lg:w-7' />
             </div>
 
-            {/* Number */}
-            <h3 className='text-5xl font-bold tracking-tight'>
+            {/* Counter */}
+
+            <h3
+              className='
+                font-bold
+                tracking-tight
+
+                text-4xl
+                sm:text-5xl
+                lg:text-6xl
+              '
+            >
               <Counter
                 value={item.number}
                 suffix={item.suffix}
@@ -115,16 +207,53 @@ const Stats = () => {
             </h3>
 
             {/* Label */}
-            <p className='mt-3 text-sm uppercase tracking-[0.25em] text-neutral-400'>
+
+            <p
+              className='
+                mt-3
+
+                text-xs
+                uppercase
+                tracking-[0.18em]
+
+                text-neutral-400
+
+                sm:text-sm
+                sm:tracking-[0.22em]
+                lg:tracking-[0.28em]
+              '
+            >
               {item.label}
             </p>
 
-            {/* Bottom Glow */}
+            {/* Glow */}
+
             <div
-              className='absolute -bottom-24 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-primary/20
-              blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100'
+              className='
+                absolute
+                left-1/2
+                -bottom-20
+
+                h-32
+                w-32
+
+                -translate-x-1/2
+                rounded-full
+
+                bg-primary/20
+                blur-3xl
+
+                opacity-0
+                transition-opacity
+                duration-500
+
+                group-hover:opacity-100
+
+                lg:h-40
+                lg:w-40
+              '
             />
-          </motion.div>
+          </motion.article>
         );
       })}
     </motion.section>

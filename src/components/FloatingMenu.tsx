@@ -33,17 +33,33 @@ const FloatingMenu = () => {
   return (
     <div
       className='
-      floating-menu
-      fixed
-      z-30
-      rounded-full
-      border
-      border-white/10
-      bg-white/5
-      backdrop-blur-xl
-      p-3
-      shadow-2xl
-      '
+        fixed
+        z-30
+        
+        bottom-5
+        left-1/2
+        -translate-x-1/2
+        
+        flex
+        flex-row
+        
+        rounded-full
+        border
+        border-white/10
+        bg-white/5
+        backdrop-blur-xl
+        
+        p-2
+        
+        lg:top-1/2
+        lg:right-10
+        lg:left-auto
+        lg:bottom-auto
+        lg:-translate-y-1/2
+        lg:translate-x-0
+        lg:flex-col
+        lg:p-3
+        '
     >
       {navLinks.map((link) => {
         const Icon = link.icon;
@@ -56,7 +72,7 @@ const FloatingMenu = () => {
             className={cn(
               'group relative flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300',
               active === link.link
-                ? 'scale-110 bg-primary text-black shadow-lg shadow-primary/30'
+                ? 'scale-110 bg-primary/35 text-white shadow-lg shadow-primary/30'
                 : 'text-neutral-500 hover:bg-white/5 hover:text-white',
             )}
           >
@@ -64,6 +80,9 @@ const FloatingMenu = () => {
 
             <span
               className='
+              scale-0
+              lg:scale-100
+
               absolute
               right-full
               mr-4
@@ -75,7 +94,7 @@ const FloatingMenu = () => {
               text-sm
               text-white
               opacity-0
-              translate-x-3
+            
               transition
               group-hover:translate-x-0
               group-hover:opacity-100

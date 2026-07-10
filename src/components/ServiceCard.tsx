@@ -19,8 +19,28 @@ const ServiceCard = ({ service, index }: Props) => {
       transition={{
         duration: 0.35,
       }}
-      className='group relative overflow-hidden rounded-3xl border border-white/10 bg-white/3 
-        backdrop-blur-xl p-8'
+      className='
+        group
+        relative
+        overflow-hidden
+
+        flex
+        items-start
+        justify-between
+        gap-4
+
+        rounded-3xl
+
+        p-5
+        sm:p-6
+        lg:p-8
+
+        border
+        border-white/10
+
+        bg-white/3
+        backdrop-blur-xl
+        '
     >
       {/* Glow */}
 
@@ -36,26 +56,26 @@ const ServiceCard = ({ service, index }: Props) => {
           transition-transform duration-500 group-hover:scale-y-100'
       />
 
-      <div className='relative flex items-center justify-between gap-10'>
+      <div className='relative flex items-center justify-between gap-0 lg:gap-10'>
         {/* Left */}
 
         <div className='flex gap-6'>
-          <span className='text-5xl font-black text-white/10 transition group-hover:text-primary'>
+          <span className='text-xl lg:text-5xl font-black text-white/10 transition group-hover:text-primary'>
             {String(index + 1).padStart(2, '0')}
           </span>
 
           <div>
-            <h3 className='text-2xl font-semibold transition-colors group-hover:text-primary'>
+            <h3 className='text-lg sm:text-xl lg:text-2xl font-semiboldtransition-colors group-hover:text-primary'>
               {service.title}
             </h3>
 
-            <p className='mt-3 max-w-xl leading-7 text-neutral-400'>
+            <p className='mt-2 text-sm sm:text-base text-neutral-400 leading-7'>
               {service.desc}
             </p>
 
             <span
               className='mt-5 inline-block rounded-full border border-white/10 bg-white/5 
-                px-4 py-2 text-xs uppercase tracking-[0.25em] text-neutral-300'
+                px-4 py-2 text-xs sm:text-sm uppercase tracking-[0.25em] text-neutral-300'
             >
               {service.projects}
             </span>
@@ -76,7 +96,7 @@ const ServiceCard = ({ service, index }: Props) => {
           </motion.div>
 
           <ArrowUpRight
-            className='opacity-0 translate-x-3 transition-all duration-300 group-hover:translate-x-0
+            className='opacity-0 hidden lg:block translate-x-3 transition-all duration-300 group-hover:translate-x-0
               group-hover:opacity-100'
             size={24}
           />

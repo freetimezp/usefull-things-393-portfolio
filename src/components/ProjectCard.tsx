@@ -6,6 +6,8 @@ import { fadeUp } from '@/lib/animations';
 import type { ProjectType } from '@/types';
 
 const ProjectCard = ({ imgSrc, projectLink, tags, title }: ProjectType) => {
+  const [hovered, setHovered] = useState(false);
+
   const [mouse, setMouse] = useState({
     x: 50,
     y: 50,
@@ -24,6 +26,8 @@ const ProjectCard = ({ imgSrc, projectLink, tags, title }: ProjectType) => {
           y: ((e.clientY - rect.top) / rect.height) * 100,
         });
       }}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
       className='group relative overflow-hidden rounded-3xl border border-white/10 bg-white/3 backdrop-blur-xl'
     >
       {/* Cursor Glow */}
@@ -43,10 +47,17 @@ const ProjectCard = ({ imgSrc, projectLink, tags, title }: ProjectType) => {
         <motion.img
           src={imgSrc}
           alt={title}
-          whileHover={{
-            scale: 1.08,
-            rotate: 1,
-          }}
+          animate={
+            hovered
+              ? {
+                  scale: 1.08,
+                  rotate: 1,
+                }
+              : {
+                  scale: 1,
+                  rotate: 0,
+                }
+          }
           transition={{
             duration: 0.6,
           }}
@@ -65,14 +76,18 @@ const ProjectCard = ({ imgSrc, projectLink, tags, title }: ProjectType) => {
 
       <div className='absolute inset-0 flex flex-col justify-end p-8'>
         <motion.div
-          initial={{
-            y: 40,
-            opacity: 0,
-          }}
-          whileHover={{
-            y: 0,
-            opacity: 1,
-          }}
+          initial={false}
+          animate={
+            hovered
+              ? {
+                  y: 0,
+                  opacity: 1,
+                }
+              : {
+                  y: 40,
+                  opacity: 0,
+                }
+          }
           transition={{
             duration: 0.35,
           }}
@@ -87,7 +102,7 @@ const ProjectCard = ({ imgSrc, projectLink, tags, title }: ProjectType) => {
             {tags.map((tag) => (
               <span
                 key={tag}
-                className='
+                className='                
                 rounded-full
                 border
                 border-white/10

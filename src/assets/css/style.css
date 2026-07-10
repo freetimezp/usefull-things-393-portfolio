@@ -164,43 +164,35 @@
   }
 }
 
-@keyframes float {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(var(--rotate, 0deg));
-  }
-
-  50% {
-    transform: translate3d(80px, -120px, 0)
-      rotate(calc(var(--rotate, 0deg) + 6deg));
-  }
-
-  100% {
-    transform: translate3d(-60px, 80px, 0) rotate(var(--rotate, 0deg));
-  }
-}
-
 .animate-float {
   animation-name: float;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
 
-.floating-menu {
-  right: 32px;
-  top: 50%;
-  transform: translateY(-50%);
-  animation: dockFloat 6s ease-in-out infinite;
-}
-
-@keyframes dockFloat {
+@keyframes float {
   0%,
   100% {
-    transform: translateY(-50%);
+    transform: translate3d(0, 0, 0) rotate(var(--rotate, 0deg));
+  }
+
+  25%,
+  75% {
+    transform: translate3d(80px, -120px, 0)
+      rotate(calc(var(--rotate, 0deg) + 6deg));
   }
 
   50% {
-    transform: translateY(calc(-50% - 6px));
+    transform: translate3d(-60px, 80px, 0) rotate(var(--rotate, 0deg));
   }
+}
+
+a,
+p,
+h1,
+h2,
+h3 {
+  user-select: none;
 }
 
 .stat-card {

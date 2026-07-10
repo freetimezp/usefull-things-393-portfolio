@@ -32,9 +32,12 @@ export default function BackgroundWords() {
     text: WORDS[Math.floor(random(i) * WORDS.length)],
     top: random(i + 10) * 100,
     left: random(i + 20) * 100,
-    size: 70 + random(i + 30) * 120,
+    size:
+      window.innerWidth < 600
+        ? 35 + random(i + 30) * 35
+        : 60 + random(i + 30) * 120,
     rotate: random(i + 40) * 20 - 10,
-    duration: 30 + random(i + 50) * 30,
+    duration: 60 + random(i + 50) * 30,
     delay: -random(i + 60) * 30,
   }));
 
@@ -43,7 +46,8 @@ export default function BackgroundWords() {
       {words.map((word) => (
         <span
           key={word.id}
-          className='absolute font-black whitespace-nowrap select-none text-foreground/5 opacity-50 dark:text-white/5 blur-[1px] animate-float'
+          className='absolute font-black whitespace-nowrap select-none text-foreground/5 
+            opacity-50 dark:text-white/5 blur-[1px] animate-float'
           style={{
             top: `${word.top}%`,
             left: `${word.left}%`,

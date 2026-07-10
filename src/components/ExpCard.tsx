@@ -32,17 +32,17 @@ const ExpCard = ({ item }: Props) => {
       />
 
       <span
-        className='text-sm tracking-[0.2em] uppercase text-neutral-400 group-hover:text-primary
+        className='text-sm sm:text-base tracking-[0.2em] uppercase text-neutral-400 group-hover:text-primary
           transition'
       >
         {item.year}
       </span>
 
-      <h3 className='mt-2 text-xl font-semibold'>{item.title}</h3>
+      <h3 className='mt-2 text-lg sm:text-xl font-semibold'>{item.title}</h3>
 
       <p className='mt-2 text-neutral-400'>{item.institute}</p>
 
-      <p className='mt-4 leading-7 text-neutral-400'>{item.desc}</p>
+      <p className='mt-2 text-sm leading-7 text-neutral-400'>{item.desc}</p>
     </motion.article>
   );
 };

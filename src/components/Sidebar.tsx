@@ -18,15 +18,39 @@ import { navLinks, socialLinks } from '@/data/data';
 const Sidebar = () => {
   const [active, setActive] = useState('#hero');
 
+  const [open, setOpen] = useState(false);
+
   return (
     <>
-      <Sheet>
+      <Sheet
+        open={open}
+        onOpenChange={setOpen}
+      >
         <SheetTrigger asChild>
           <Button
             variant='ghost'
             size='icon'
-            className='m-4 fixed top-4 right-4 z-50 border-2 hover:border-primary bg-neutral-800 p-5 
-            rounded-full hover:text-primary cursor-pointer'
+            className='
+              fixed
+              top-4
+              right-4
+              z-50
+
+              h-12
+              w-12
+
+              rounded-full
+              border
+              border-white/10
+              bg-neutral-900/80
+              backdrop-blur-xl
+
+              hover:border-primary
+              hover:text-primary
+
+              lg:h-14
+              lg:w-14
+              '
           >
             <MenuIcon size={30} />
           </Button>
@@ -34,7 +58,17 @@ const Sidebar = () => {
 
         <SheetContent
           side='right'
-          className='w-104 bg-neutral-900 text-white py-6 pl-10'
+          className='
+            w-[92vw]
+            max-w-md
+            bg-neutral-900
+            text-white
+            px-6
+            py-8
+
+            sm:w-[420px]
+            lg:w-[480px]
+          '
         >
           <SheetTitle className='text-lg font-semibold'>Menu</SheetTitle>
 
@@ -44,8 +78,22 @@ const Sidebar = () => {
             transition={{
               duration: 1,
             }}
-            className='absolute bottom-10 right-0 text-[12rem] font-black text-white/5   tracking-tight
-            select-none'
+            className='
+                absolute
+                bottom-4
+                right-0
+                
+
+                select-none
+                font-black
+                tracking-tight
+
+                text-[5rem]
+                sm:text-[8rem]
+                lg:text-[12rem]
+
+                text-white/5
+                '
           >
             MENU
           </motion.div>
@@ -78,7 +126,10 @@ const Sidebar = () => {
                   }}
                   key={link.label}
                   href={link.link}
-                  onClick={() => setActive(link.link)}
+                  onClick={() => {
+                    setActive(link.link);
+                    setOpen(false);
+                  }}
                   className={cn(
                     'group flex items-center justify-between rounded-2xl px-5 py-4 transition-all duration-300',
                     active === link.link
@@ -106,7 +157,7 @@ const Sidebar = () => {
             <h3 className='text-xl font-bold'>WebDev</h3>
           </div>
 
-          <div className='mt-30'>
+          <div className='mt-10 lg:mt-30'>
             <p className='pb-2'>Socials</p>
 
             <div className='flex gap-3 text-neutral-500'>
@@ -118,7 +169,7 @@ const Sidebar = () => {
                     href={social.link}
                     key={i}
                     className='hover:text-primary border-2 border-neutral-500 p-2 rounded-full hover:border-primary 
-                        transition duration-200'
+                        transition duration-200 z-50'
                   >
                     <Icon className='size-4' />
                   </a>

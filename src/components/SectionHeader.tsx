@@ -21,7 +21,7 @@ const SectionHeader = ({
           repeat: Infinity,
           duration: 2,
         }}
-        className='flex items-center justify-center py-1 gap-2 border border-neutral-600 rounded-sm
+        className='flex mb-6 lg:m-0 items-center justify-center py-1 gap-2 border border-neutral-600 rounded-sm
             w-32'
       >
         <SparkleIcon size={15} /> {subtitle}

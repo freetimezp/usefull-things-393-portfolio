@@ -15,14 +15,34 @@ const Services = () => {
       whileInView='visible'
       viewport={{ once: true, amount: 0.2 }}
       variants={staggerContainer(0.12)}
-      className='mt-40 scroll-mt-24'
+      className='
+        mt-20
+        scroll-mt-24
+
+        sm:mt-24
+        lg:mt-32
+        xl:mt-40
+      '
     >
       <SectionHeader
         subtitle='Services'
         title='Building with Purpose & Precision.'
       />
 
-      <div className='mt-16 space-y-6'>
+      <div
+        className='
+          mt-8
+          space-y-4
+
+          sm:mt-10
+          sm:space-y-5
+
+          lg:mt-14
+          lg:space-y-6
+
+          xl:mt-16
+        '
+      >
         {services.map((service, index) => (
           <ServiceCard
             key={index}

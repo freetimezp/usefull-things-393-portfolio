@@ -122,7 +122,7 @@ const Testimonials = () => {
 
             {/* Review */}
 
-            <motion.p className='relative mt-8 max-w-4xl text-2xl leading-relaxed font-light md:text-3xl'>
+            <motion.p className='relative mt-8 max-w-4xl text-xs lgtext-2xl leading-relaxed font-light md:text-3xl'>
               "{testimonials[current].text}"
             </motion.p>
 
