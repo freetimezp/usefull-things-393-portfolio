@@ -3,7 +3,6 @@ import type {
   LinksType,
   ProjectType,
   ServiceType,
-  StatsType,
   TestimonialsType,
   ToolsType,
 } from '@/types';
@@ -220,21 +219,6 @@ const services: ServiceType[] = [
   },
 ];
 
-const statsData: StatsType[] = [
-  {
-    number: '30+',
-    label: 'Happy Clients',
-  },
-  {
-    number: '05+',
-    label: 'Years Of Experience',
-  },
-  {
-    number: '50+',
-    label: 'Projects Done',
-  },
-];
-
 const testimonials: TestimonialsType[] = [
   {
     name: 'Alex Tomato',
@@ -267,6 +251,5 @@ export {
   tools,
   services,
   navLinks,
-  statsData,
   testimonials,
 };
