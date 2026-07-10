@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 import { navLinks } from '@/data/data';
@@ -6,32 +6,80 @@ import { navLinks } from '@/data/data';
 const FloatingMenu = () => {
   const [active, setActive] = useState('#hero');
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(`#${entry.target.id}`);
+          }
+        });
+      },
+      {
+        rootMargin: '-40% 0px -40% 0px',
+        threshold: 0,
+      },
+    );
+
+    navLinks.forEach((link) => {
+      const section = document.querySelector(link.link);
+
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div
-      className='floating-menu fixed z-0 rounded-full border border-white/10 bg-white/5
-      backdrop-blur-xl p-3 shadow-2xl'
+      className='
+      floating-menu
+      fixed
+      z-30
+      rounded-full
+      border
+      border-white/10
+      bg-white/5
+      backdrop-blur-xl
+      p-3
+      shadow-2xl
+      '
     >
       {navLinks.map((link) => {
         const Icon = link.icon;
 
         return (
           <a
-            href={link.link}
             key={link.label}
+            href={link.link}
             onClick={() => setActive(link.link)}
             className={cn(
-              'relative group flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300',
+              'group relative flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300',
               active === link.link
-                ? 'bg-primary/10 text-white scale-110'
-                : 'text-neutral-500 hover:bg-white/5',
+                ? 'scale-110 bg-primary text-black shadow-lg shadow-primary/30'
+                : 'text-neutral-500 hover:bg-white/5 hover:text-white',
             )}
           >
             <Icon className='size-5' />
 
             <span
-              className='absolute right-full mr-4 rounded-full bg-neutral-900 text-white px-3 py-1
-                  text-sm opacity-0 translate-x-3 group-hover:opacity-100 group-hover:translate-x-0
-                  transition whitespace-nowrap'
+              className='
+              absolute
+              right-full
+              mr-4
+              whitespace-nowrap
+              rounded-full
+              bg-neutral-900
+              px-3
+              py-1
+              text-sm
+              text-white
+              opacity-0
+              translate-x-3
+              transition
+              group-hover:translate-x-0
+              group-hover:opacity-100
+              '
             >
               {link.label}
             </span>

@@ -12,7 +12,7 @@ const Hero = () => {
       whileInView='visible'
       viewport={{ once: true, amount: 0.3 }}
       variants={staggerContainer(0)}
-      className='mt-24 flex flex-col justify-center relative'
+      className='mt-20 py-8 flex flex-col justify-center relative'
       id='hero'
     >
       <div className='absolute inset-0 -z-10 overflow-hidden'>

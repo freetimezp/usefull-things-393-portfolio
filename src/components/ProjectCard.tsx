@@ -140,7 +140,7 @@ const ProjectCard = ({ imgSrc, projectLink, tags, title }: ProjectType) => {
         text-[120px]
         font-black
         leading-none
-        text-white/[0.03]
+        text-white/3
         pointer-events-none
       '
       >
