@@ -35,7 +35,7 @@ const Contact = () => {
     },
   });
 
-  const onSubmit = (values: ContactFormValues) => {};
+  const onSubmit = () => {};
 
   return (
     <motion.div
