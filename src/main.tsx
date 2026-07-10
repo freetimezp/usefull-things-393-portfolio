@@ -1,5 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+
+import '../src/assets/css/style.css';
+
 import App from './App.tsx';
 
 import Sidebar from '@/components/Sidebar.tsx';

@@ -75,28 +75,33 @@ const socialLinks: LinksType[] = [
   },
 ];
 
+import projectImg1 from '/images/project-1.jpg';
+import projectImg2 from '/images/project-2.jpg';
+import projectImg3 from '/images/project-3.jpg';
+import projectImg4 from '/images/project-4.jpg';
+
 const projectsData: ProjectType[] = [
   {
-    imgSrc: '/images/project-ph-1.jpeg',
-    title: 'Full stack music app',
+    imgSrc: projectImg1,
+    title: 'Full stack app',
     tags: ['API', 'Development'],
     projectLink: 'https://render.com/',
   },
   {
-    imgSrc: '/images/project-ph-2.jpeg',
-    title: 'Full stack music app',
+    imgSrc: projectImg2,
+    title: 'Full stack app',
     tags: ['API', 'Development'],
     projectLink: 'https://render.com/',
   },
   {
-    imgSrc: '/images/project-ph-3.jpeg',
-    title: 'Full stack music app',
+    imgSrc: projectImg3,
+    title: 'Full stack app',
     tags: ['API', 'Development'],
     projectLink: 'https://render.com/',
   },
   {
-    imgSrc: '/images/project-ph-4.jpeg',
-    title: 'Full stack music app',
+    imgSrc: projectImg4,
+    title: 'Full stack app',
     tags: ['API', 'Development'],
     projectLink: 'https://render.com/',
   },
@@ -138,38 +143,47 @@ const experience: ExperienceType[] = [
   },
 ];
 
+import iconFigma from '/images/tools/figma.svg';
+import iconCss from '/images/tools/css3.svg';
+import iconTailwindcss from '/images/tools/tailwindcss.svg';
+import iconReact from '/images/tools/react.svg';
+import iconJavascript from '/images/tools/javascript.svg';
+import iconNodejs from '/images/tools/nodejs.svg';
+import iconExpressjs from '/images/tools/expressjs.svg';
+import iconMongodb from '/images/tools/mongodb.svg';
+
 const tools: ToolsType[] = [
   {
     label: 'Figma',
-    imgSrc: '/images/tools/figma.svg',
+    imgSrc: iconFigma,
   },
   {
     label: 'CSS',
-    imgSrc: '/images/tools/css3.svg',
+    imgSrc: iconCss,
   },
   {
     label: 'Tailwind CSS',
-    imgSrc: '/images/tools/tailwindcss.svg',
+    imgSrc: iconTailwindcss,
   },
   {
     label: 'React',
-    imgSrc: '/images/tools/react.svg',
+    imgSrc: iconReact,
   },
   {
     label: 'JavaScript',
-    imgSrc: '/images/tools/javascript.svg',
+    imgSrc: iconJavascript,
   },
   {
     label: 'Node.js',
-    imgSrc: '/images/tools/nodejs.svg',
+    imgSrc: iconNodejs,
   },
   {
     label: 'Express.js',
-    imgSrc: '/images/tools/expressjs.svg',
+    imgSrc: iconExpressjs,
   },
   {
     label: 'Mongodb',
-    imgSrc: '/images/tools/mongodb.svg',
+    imgSrc: iconMongodb,
   },
 ];
 

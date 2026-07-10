@@ -2,10 +2,10 @@ import { motion } from 'motion/react';
 
 import { staggerContainer } from '@/lib/animations';
 
-import { projectsData } from '@/data/data';
+import { projectsData } from '@/data/data.js';
 
-import SectionHeader from '@/components/SectionHeader';
-import ProjectCard from '@/components/ProjectCard';
+import SectionHeader from '@/components/SectionHeader.tsx';
+import ProjectCard from '@/components/ProjectCard.tsx';
 
 const Projects = () => {
   return (

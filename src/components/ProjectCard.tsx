@@ -13,7 +13,7 @@ const ProjectCard = ({ imgSrc, projectLink, tags, title }: ProjectType) => {
         <img
           src={imgSrc}
           alt={title}
-          className='rounded-md transition duration-500 hover:scale-115 w-full'
+          className='rounded-md transition duration-500 hover:scale-115 w-full grayscale-50'
         />
       </figure>
 
