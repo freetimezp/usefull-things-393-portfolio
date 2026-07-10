@@ -55,7 +55,7 @@ const Resume = () => {
         <motion.div variants={fadeUp}>
           <h2 className='text-3xl font-semibold mb-8'>Work Experience</h2>
 
-          <div className='space-y-8 border-l border  pl-6'>
+          <div className='space-y-8 border-l border-neutral-700 pl-6'>
             {experience.map((item, i) => (
               <ExpCard
                 key={i}
